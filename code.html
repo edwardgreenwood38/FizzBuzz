@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by G Technologies</title>
+    <title>FizzBuzz: A Coding Project by G Technologies</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
     <!--####  nav  ####-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/Color Logo symbol only - no background (small).png" class="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+            <a class="navbar-brand" href="#"><img src="/img/Color Logo symbol only - no background (small).png" class="d-inline-block align-text-top" width="30" height="24"> FizzBuzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/edwardgreenwood38/FizzBuzz">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="#">About</a>
@@ -55,14 +55,83 @@
     <!--####  main  ####-->
     <main class="flex-shrink-0">
         <div class="container py-4 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for FizzBuzz</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        // call helloworld
-                        function HelloWorld() {
-                            alert("hello world");
+                        // get the values user entered
+                        // controller
+                        function getValues() {
+                            let fizzValue = document.getElementById("fizzValue").value;
+                            let buzzValue = document.getElementById("buzzValue").value;
+
+                            // convert to int
+                            fizzValue = parseInt(fizzValue);
+                            buzzValue = parseInt(buzzValue);
+
+                            // valudate is integers
+                            if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
+                                // call genrateNumbers
+                                let fizzBuzz = generateFizzBuzz(fizzValue, buzzValue);
+
+                                // call displayNumbers
+                                displayFizzBuzz(fizzBuzz);
+                            } 
+                            else {
+                                alert("You must enter integers");
+                            }
                         }
+
+                        // calculate fizz, buzz and fizzbuzz
+                        // logic
+                        function generateFizzBuzz(fv, bv) {
+                            let fizzBuzz = [];
+
+                            // loop to find each fizz, buzz and fizzbuzz
+                            for (let i = 1; i <= 100; i++)
+                            {
+                                let item = "";
+
+                                if (i % (fv * bv) == 0)
+                                {
+                                    item = "FizzBuzz";
+                                }
+                                else if (i % bv == 0) 
+                                {
+                                    item = "Buzz";
+                                }
+                                else if (i % fv == 0)
+                                {
+                                    item = "Fizz";
+                                }
+                                else
+                                {
+                                    item = i;
+                                }
+
+                                // add to array
+                                fizzBuzz.push(item);
+                            }
+
+                            return fizzBuzz;
+                        }
+
+                        // display fizzbuzz results
+                        // view function
+                        function displayFizzBuzz(fizzbuzz) {
+                            // to hold html
+                            let templateRows = "";
+
+                            // loop array to create output from array
+                            for (let i = 0; i < 100; i++)
+                            {
+                                templateRows += `<tr><td>${fizzbuzz[i]}</td></tr>`;
+                            }
+
+                            // add html to display
+                            document.getElementById("results").innerHTML = templateRows;
+                        }
+
                     </code>
                     </pre>
                 </div>

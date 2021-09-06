@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by G Technologies</title>
+    <title>FizzBuzz: A Coding Project by G Technologies</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,7 @@
     <!--####  nav  ####-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/Color Logo symbol only - no background (small).png" class="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+            <a class="navbar-brand" href="#"><img src="/img/Color Logo symbol only - no background (small).png" class="d-inline-block align-text-top" width="30" height="24"> FizzBuzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
                         <a class="nav-link" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/edwardgreenwood38/FizzBuzz">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="#">About</a>
@@ -52,7 +52,46 @@
 
     <!--####  main  ####-->
     <main class="flex-shrink-0">
-        <div class="container"></div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <h1>FizzBuzz: A coding project</h1>
+                    <h4 class="lead">Write a short program that displays each number from 1 to 100.
+                        For each multiple of 3, display "Fizz" instead of the number.
+                        For each multiple of 5, display "Buzz" instead of the number.
+                        For numbers which are multiples of both 3 and 5, display "FizzBuzz" instead of the number.</h4>
+                    
+                    <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                    <p>Enter a fizz value and a buzz value. Press the button to see the results.</p>
+                </div>
+                <div class="col">
+                    <div>
+                        <h5>Enter Values</h5>
+                        <form class="row gy-2 gx-3">
+                            <div class="col">
+                                <input id="fizzValue" type="number" class="form-control" placeholder="Fizz value" value=3 aria-label="Fizz Value">
+                            </div>
+                            <div class="col">
+                                <input id="buzzValue" type="number" class="form-control" placeholder="Buzz value" value=5 aria-label="Buzz Value">
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Display the FizzBuzz</button>
+                            </div>
+                        </form>
+
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm table-dark">
+                                <tbody id="results">
+                                    <!--## results go here ##-->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!--####  footer  ####-->
@@ -81,6 +120,11 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
     <script src="/js/site.js"></script>
+    
+    <!--##  page actions  ##-->
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
+    </script>
 </body>
 
 </html>
