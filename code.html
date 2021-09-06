@@ -115,9 +115,10 @@
                         // display fizzbuzz results
                         // view function
                         function displayFizzBuzz(fizzbuzz) {
-                            // to hold html
-                            //let templateRows = "";
+                            // get area to place text
                             let tableBody = document.getElementById("results");
+
+                            // get the html template to use
                             let templateRow = document.getElementById("fbTemplate");
 
 
@@ -138,20 +139,28 @@
                                 rowCols[4].textContent = fizzbuzz[i+4];
 
                                 tableBody.appendChild(tableRow);
-                                
                             }
-
-                            // add html to display
-                            //document.getElementById("results").innerHTML = templateRows;
                         }
 
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>HelloWorld</h5>
-                    <p>helloworld is a fucntion that displays an alert with a message of "Hello World"</p>
+                    <p>The Code is structured in three functions.</p>
+                    <h5>getValues</h5>
+                    <p>getValues function gets the values the user enter for Fizz and Buzz.</p>
+                    <p>This also function as the controller for the application.</p>
+                    <h5>generateFizzBuzz</h5>
+                    <p>generateFizzBuzz function takes in the two numbers as parameters and creates an empty array at the begining.</p>
+                    <p>Next we enter a for loop from 1 to 100. We use the i variable to determine if the number is a Fizz (1 % Fizz == 0) or a Buzz (i % Buzz == 0) or a FizzBuzz (i % (Fizz * Buzz) == 0) and finally if i does not match any conditions the just pass the value of i inot the array.</p>
+                    <p>This returns an array with all the numbers from 1 to 100 with Fizz, Buzz and FizBuzz replacing the values as calculated.</p>
+                    <h5>displayFizzBuzz</h5>
+                    <p>displayFizzBuzz function will display the data in a 5 column table format.</p>
+                    <p>First we get the area we are going to place the data by id ('results'). Next we get the html template object we are going to use by id ('fbTemplate').</p>
+                    <p>Next we clear the display area of any previous results.</p>
+                    <p>Then we create a for loop that lops over the length of the array passed in. We grab the table row template as an object. We then use css selector to get all the 'td' tags and put them in a variable.</p>
+                    <p>We add each array item to a td tag by adding to a number to i as needed for each column (+1, +2, ...)</p>
+                    <p>Once all the data has been add for that row, we append the table row data to the display area until the array is compelted.</p>
                 </div>
             </div>
         </div>
