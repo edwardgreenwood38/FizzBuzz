@@ -59,20 +59,38 @@ function generateFizzBuzz(fv, bv) {
 // view function
 function displayFizzBuzz(fizzbuzz) {
     // to hold html
-    let templateRows = "";
+    //let templateRows = "";
+    let tableBody = document.getElementById("results");
+    let templateRow = document.getElementById("fbTemplate");
+
+
+    // clear table
+    tableBody.innerHTML = "";
 
     // loop array to create output from array
-    for (let i = 0; i < 100; i += 5)
+    for (let i = 0; i < fizzbuzz.length; i += 5)
     {
-        templateRows += `<tr>`;
+        let tableRow = document.importNode(templateRow.content, true);
+
+        // grab the td put in an array
+        let rowCols = tableRow.querySelectorAll("td");
+        rowCols[0].textContent = fizzbuzz[i];
+        rowCols[1].textContent = fizzbuzz[i+1];
+        rowCols[2].textContent = fizzbuzz[i+2];
+        rowCols[3].textContent = fizzbuzz[i+3];
+        rowCols[4].textContent = fizzbuzz[i+4];
+
+        tableBody.appendChild(tableRow);
+        
+        /* templateRows += `<tr>`;
         templateRows += `<td>${fizzbuzz[i]}</td>`;
         templateRows += `<td>${fizzbuzz[i+1]}</td>`;
         templateRows += `<td>${fizzbuzz[i+2]}</td>`;
         templateRows += `<td>${fizzbuzz[i+3]}</td>`;
         templateRows += `<td>${fizzbuzz[i+4]}</td>`;
-        templateRows += `</tr>`;
+        templateRows += `</tr>`; */
     }
 
     // add html to display
-    document.getElementById("results").innerHTML = templateRows;
+    //document.getElementById("results").innerHTML = templateRows;
 }
